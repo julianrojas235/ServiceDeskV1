@@ -1,10 +1,5 @@
-<%-- 
-    Document   : index
-    Created on : 05-sep-2018, 9:25:54
-    Author     : Usuario1
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page session="true"%>
 <!DOCTYPE html>
 <!--Commment @JuliánRojas @Skem-->
 <html> 
@@ -26,11 +21,11 @@
                             <form action="inicio.html" id="loginForm" method="post">
                                 <div class="form-group input-group">
                                     <!--Estos iconos no dan,no sé por qué #glyphicon @Skem-->
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i</span>
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                                     <input class="form-control" type="text" name='username' placeholder="E-mail"/>          
                                 </div>
                                 <div class="form-group input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i>                                                                                                                                                                                                                     </span>
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>                                                                                                                                                                                                                     </span>
                                     <input class="form-control" type="password" name='password' placeholder="Password"/>     
                                 </div>
                                 <div class="form-group">
