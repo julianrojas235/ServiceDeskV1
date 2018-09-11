@@ -15,48 +15,49 @@ import java.sql.SQLException;
  * @author Usuario1
  */
 public class Conexion {
+
     private Connection con;
-    
+
     //Parametros de conexión
-    final String cadenaConexion = "jdbc:oracle:thin:@localhost:1521:XE";
-    final String user = "DATABASE";
-    final String pass = "123";
-    
+    final String cadenaConexion = "jdbc:mysql://db4free.net:3306/service_desk";
+    final String user = "mrskem";
+    final String pass = "12345678";
+
     //Constructor
     public Conexion() {
         this.con = null;
     }
-    
+
     //Método para establecer la conexión
     public Connection establecerConexion(){
         try {
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            this.con = DriverManager.getConnection(cadenaConexion,user,pass);
+            Class.forName("com.mysql.jdbc.Driver");
+            this.con = DriverManager.getConnection(cadenaConexion, user, pass);
             System.out.println("Conectado");
         } catch (ClassNotFoundException e) {
             e.getStackTrace();
-            System.out.println("Error: "+e.getMessage());
-        } catch (SQLException e){
+            System.out.println("Error: " + e.getMessage());
+        } catch (SQLException e) {
             e.getStackTrace();
-            System.out.println("Error: "+e.getMessage()+e.getSQLState());
+            System.out.println("Error: " + e.getMessage() + e.getSQLState());
         }
         return con;
     }
-    
-    //Método para establecer ejecutar una consulta
-    public ResultSet ejecutarConsulta(String consulta) throws SQLException{
+
+    //Método para ejecutar una consulta
+    public ResultSet ejecutarConsulta(String consulta) throws SQLException {
         ResultSet rs = null;
         try {
-             rs = con.prepareStatement(consulta).executeQuery();
-             con.close();
-            
+            rs = con.prepareStatement(consulta).executeQuery();
+            con.close();
+
         } catch (Exception e) {
             System.out.println(e);
             con.close();
         }
         return rs;
     }
-    
+
 //    public static void main(String[] args) {
 //        Conexion1 conection = new Conexion1();
 //        try {
